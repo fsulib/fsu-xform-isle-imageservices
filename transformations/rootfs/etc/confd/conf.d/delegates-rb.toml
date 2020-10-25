@@ -1,0 +1,9 @@
+[template]
+src = "imageserv/delegates.rb.tpl"
+dest = "/usr/local/cantaloupe/delegates.rb"
+uid = 1000
+gid = 1000
+mode = "0644"
+keys = [
+  "/apache/endpoint"
+]
