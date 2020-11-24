@@ -3,7 +3,9 @@
 # The object here is to clone the isle-imageservices repo, copy the contents of 
 # transformations over it and patch the files that require patching.
 
-# isle-imageservices requires no patches, just the new delegates.rb template file
+# To work with AWS we need to patch the cantaloupe.properties file and introduce
+# a confd variable, /base/domain, which equals the value of the BASE_DOMAIN env
+# and will set cantaloupe's base_url property. 
 
 [[ $CLONE_BASE ]] || CLONE_BASE=./isle-imageservices
 OWD="${PWD}"
@@ -11,6 +13,10 @@ git clone https://github.com/Islandora-Collaboration-Group/isle-imageservices.gi
 cp -r transformations/* "${CLONE_BASE}"
 cd "${CLONE_BASE}"
 patch < Dockerfile.patch
-find . -type f -iname \*.patch -delete
+cd rootfs/etc/confd/conf.d
+patch < cantaloupe.toml.patch
+cd ../templates/imageserv
+patch < cantaloupe.properties.tpl.patch
 cd "${OWD}"
+find . -type f -iname \*.patch -delete
 exit 0
