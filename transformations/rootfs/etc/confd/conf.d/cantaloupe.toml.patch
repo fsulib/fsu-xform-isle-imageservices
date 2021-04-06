@@ -1,10 +1,11 @@
---- isle-imageservices/rootfs/etc/confd/conf.d/cantaloupe.toml	2020-10-23 12:26:02.000000000 -0400
-+++ isle-imageservices-workdir/rootfs/etc/confd/conf.d/cantaloupe.toml	2020-11-24 13:31:50.000000000 -0500
-@@ -5,6 +5,7 @@
- gid = 1000
- mode = "0644"
- keys = [
-+  "/base/domain",
-   "/cantaloupe/admin/interface/enable",
-   "/cantaloupe/admin/user",
-   "/cantaloupe/admin/pass",
+--- isle-imageservices/rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-04-06 09:53:28.000000000 -0400
++++ rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-04-06 10:00:56.000000000 -0400
+@@ -39,7 +39,7 @@
+ # Base URI to use for internal links, such as Link headers and JSON-LD
+ # @id values, in a reverse-proxy context. This should only be used when
+ # X-Forwarded-* headers cannot be used instead. (See the user manual.)
+-base_uri =
++base_uri = {{ getv "/base/uri" }}
+ 
+ # Normally, slashes in a URI path component must be percent-encoded as
+ # "%2F". If your proxy is not able to pass these through without decoding,
