@@ -13,7 +13,9 @@ git clone https://github.com/Islandora-Collaboration-Group/isle-imageservices.gi
 cd "${CLONE_BASE}"
 git fetch origin
 git checkout -b ISLE-1.5.3 origin/ISLE-1.5.3
-cp -r ../transformations/* "${CLONE_BASE}"
+cd ../
+cp -r transformations/* "${CLONE_BASE}"
+cd "${CLONE_BASE}"
 patch < Dockerfile.patch
 cd rootfs/etc/confd/conf.d
 patch < cantaloupe.toml.patch
