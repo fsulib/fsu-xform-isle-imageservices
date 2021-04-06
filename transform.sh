@@ -10,10 +10,6 @@
 [[ $CLONE_BASE ]] || CLONE_BASE=./isle-imageservices
 OWD="${PWD}"
 git clone https://github.com/Islandora-Collaboration-Group/isle-imageservices.git "${CLONE_BASE}"
-cd "${CLONE_BASE}"
-git fetch origin
-git checkout -b ISLE-1.5.3 origin/ISLE-1.5.3
-cd ../
 cp -r transformations/* "${CLONE_BASE}"
 cd "${CLONE_BASE}"
 patch < Dockerfile.patch
