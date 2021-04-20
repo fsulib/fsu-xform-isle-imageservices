@@ -1,5 +1,5 @@
---- isle-imageservices/rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-04-06 09:53:28.000000000 -0400
-+++ rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-04-06 10:00:56.000000000 -0400
+--- isle-imageservices/rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-04-20 10:39:15.000000000 -0400
++++ rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-04-20 10:35:22.000000000 -0400
 @@ -39,7 +39,7 @@
  # Base URI to use for internal links, such as Link headers and JSON-LD
  # @id values, in a reverse-proxy context. This should only be used when
@@ -9,3 +9,45 @@
  
  # Normally, slashes in a URI path component must be percent-encoded as
  # "%2F". If your proxy is not able to pass these through without decoding,
+@@ -472,13 +472,13 @@
+ 
+ # Available values are `FilesystemCache`, `JdbcCache`, `RedisCache`,
+ # `HeapCache`, `S3Cache`, and `AzureStorageCache`.
+-cache.server.derivative = FilesystemCache
++cache.server.derivative = {{ getv "/cantaloupe/derivative/strategy" }}
+ 
+ # Amount of time derivative cache content remains valid. Set to blank or 0
+ # for forever.
+ # Per https://github.com/Islandora-Collaboration-Group/ISLE/issues/207
+ # Changed from default 259200 (30 days) to 86400 (1 day)
+-cache.server.source.ttl_seconds = 86400
++cache.server.derivative.ttl_seconds = {{ getv "/cantaloupe/derivative/ttl/seconds" }}
+ 
+ # Whether to use the Java heap as a "level 1" cache for image infos, either
+ # independently or in front of a "level 2" derivative cache (if enabled).
+@@ -567,20 +567,20 @@
+ # !! Endpoint URI.
+ # For AWS endpoints, see:
+ # https://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region
+-S3Cache.endpoint =
++S3Cache.endpoint = {{ getv "/cantaloupe/s3cache/endpoint" }}
+ 
+ # !! Credentials for your AWS account.
+ # See: http://aws.amazon.com/security-credentials
+ # Note that this info can be obtained from elsewhere rather than setting it
+ # here; see the user manual.
+-S3Cache.access_key_id =
+-S3Cache.secret_key =
++S3Cache.access_key_id = {{ getv "/cantaloupe/s3cache/access/key/id" }}
++S3Cache.secret_key = {{ getv "/cantaloupe/s3cache/secret/key" }}
+ 
+ # !! Name of a bucket to use to hold cached data.
+-S3Cache.bucket.name =
++S3Cache.bucket.name = {{ getv "/cantaloupe/s3cache/bucket/name" }}
+ 
+ # !! String that will be prefixed to object keys.
+-S3Cache.object_key_prefix =
++S3Cache.object_key_prefix = {{ getv "/cantaloupe/s3cache/object/key/prefix" }}
+ 
+ # !! Maximum number of concurrent HTTP connections to AWS. Leave blank to
+ # use the default.

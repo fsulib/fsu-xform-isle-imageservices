@@ -1,6 +1,6 @@
---- isle-imageservices/rootfs/etc/confd/conf.d/cantaloupe.toml	2021-04-06 09:52:43.000000000 -0400
-+++ rootfs/etc/confd/conf.d/cantaloupe.toml	2021-04-06 11:40:49.000000000 -0400
-@@ -5,6 +5,7 @@
+--- isle-imageservices/rootfs/etc/confd/conf.d/cantaloupe.toml	2021-04-20 10:39:15.000000000 -0400
++++ rootfs/etc/confd/conf.d/cantaloupe.toml	2021-04-20 10:26:07.000000000 -0400
+@@ -5,8 +5,16 @@
  gid = 1000
  mode = "0644"
  keys = [
@@ -8,3 +8,13 @@
    "/cantaloupe/admin/interface/enable",
    "/cantaloupe/admin/user",
    "/cantaloupe/admin/pass",
+-  "/cantaloupe/log/application/level"
++  "/cantaloupe/log/application/level",
++  "/cantaloupe/derivative/strategy",
++  "/cantaloupe/derivative/ttl/seconds",
++  "/cantaloupe/s3cache/endpoint",
++  "/cantaloupe/s3cache/access/key/id",
++  "/cantaloupe/s3cache/secret/key",
++  "/cantaloupe/s3cache/bucket/name",
++  "/cantaloupe/s3cache/object/key/prefix"
+ ]
