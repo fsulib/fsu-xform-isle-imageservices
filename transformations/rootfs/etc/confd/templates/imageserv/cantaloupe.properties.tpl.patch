@@ -1,5 +1,5 @@
 --- isle-imageservices/rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-04-20 10:39:15.000000000 -0400
-+++ rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-04-20 10:35:22.000000000 -0400
++++ rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-04-23 13:36:35.000000000 -0400
 @@ -39,7 +39,7 @@
  # Base URI to use for internal links, such as Link headers and JSON-LD
  # @id values, in a reverse-proxy context. This should only be used when
@@ -9,7 +9,24 @@
  
  # Normally, slashes in a URI path component must be percent-encoded as
  # "%2F". If your proxy is not able to pass these through without decoding,
-@@ -472,13 +472,13 @@
+@@ -171,7 +171,7 @@
+ 
+ # Read data in chunks when it may be more efficient. (This also may end up
+ # being less efficient, depending on many variables; see the user manual.)
+-HttpSource.chunking.enabled = true
++HttpSource.chunking.enabled = false
+ 
+ # Chunk size.
+ HttpSource.chunking.chunk_size = 512K
+@@ -465,20 +465,20 @@
+ # for forever.
+ # Per https://github.com/Islandora-Collaboration-Group/ISLE/issues/207
+ # Changed from default 259200 (30 days) to 86400 (1 day)
+-cache.server.source.ttl_seconds = 86400
++cache.server.source.ttl_seconds = 604800
+ 
+ # Enables the derivative (processed image) cache.
+ cache.server.derivative.enabled = true
  
  # Available values are `FilesystemCache`, `JdbcCache`, `RedisCache`,
  # `HeapCache`, `S3Cache`, and `AzureStorageCache`.
