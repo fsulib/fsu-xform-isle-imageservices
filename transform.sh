@@ -17,6 +17,8 @@ cd rootfs/etc/confd/conf.d
 patch < cantaloupe.toml.patch
 cd ../templates/imageserv
 patch < cantaloupe.properties.tpl.patch
+cd ../../../fix-attrs.d
+patch < 11-cantaloupe.patch
 cd "${OWD}"
 find . -type f -iname \*.patch -delete
 exit 0
