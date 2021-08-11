@@ -1,8 +1,8 @@
---- isle-imageservices/Dockerfile	2021-04-06 12:21:49.000000000 -0400
-+++ Dockerfile	2021-04-06 12:34:33.000000000 -0400
+--- isle-imageservices/Dockerfile	2021-08-10 12:44:13.000000000 -0400
++++ Dockerfile	2021-08-10 12:43:50.000000000 -0400
 @@ -1,4 +1,4 @@
--FROM islandoracollabgroup/isle-tomcat:1.5.5
-+FROM 840783682283.dkr.ecr.us-east-1.amazonaws.com/islandoracollabgroup/isle-tomcat:1.5.5
+-FROM islandoracollabgroup/isle-tomcat:1.5.9
++FROM 840783682283.dkr.ecr.us-east-1.amazonaws.com/islandoracollabgroup/isle-tomcat:1.5.9
  
  # Set up environmental variables for Tomcat, Cantaloupe & dependencies
  # @see: Cantaloupe https://cantaloupe-project.github.io/
