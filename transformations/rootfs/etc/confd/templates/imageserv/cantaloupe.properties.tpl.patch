@@ -1,11 +1,11 @@
---- isle-imageservices/rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-08-12 13:41:40.000000000 -0400
-+++ rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-08-12 16:18:05.000000000 -0400
+--- isle-imageservices/rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-08-12 18:24:56.000000000 -0400
++++ rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-08-12 18:32:44.000000000 -0400
 @@ -39,7 +39,7 @@
  # Base URI to use for internal links, such as Link headers and JSON-LD
  # @id values, in a reverse-proxy context. This should only be used when
  # X-Forwarded-* headers cannot be used instead. (See the user manual.)
 -base_uri =
-+base_uri = {{ getv "/base/uri" }} 
++base_uri = {{ getv "/base/uri" }}
  
  # Normally, slashes in a URI path component must be percent-encoded as
  # "%2F". If your proxy is not able to pass these through without decoding,
@@ -78,7 +78,7 @@
  
  # !! Name of a bucket to use to hold cached data.
 -S3Cache.bucket.name =
-+S3Cache.bucket.name = {{ getv "/cantaloupe/s3cache/endpoint" }}
++S3Cache.bucket.name = {{ getv "/cantaloupe/s3cache/bucket/name" }}
  
  # !! String that will be prefixed to object keys.
 -S3Cache.object_key_prefix =
