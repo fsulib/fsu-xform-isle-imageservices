@@ -1,5 +1,5 @@
 --- isle-imageservices/rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-08-12 13:41:40.000000000 -0400
-+++ rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-08-12 15:55:44.000000000 -0400
++++ rootfs/etc/confd/templates/imageserv/cantaloupe.properties.tpl	2021-08-12 16:18:05.000000000 -0400
 @@ -39,7 +39,7 @@
  # Base URI to use for internal links, such as Link headers and JSON-LD
  # @id values, in a reverse-proxy context. This should only be used when
@@ -27,6 +27,15 @@
  
  # Resolution of vector rasterization (of e.g. PDFs) at a scale of 1.
  processor.dpi = 150
+@@ -433,7 +433,7 @@
+ 
+ # Optional absolute path of the directory containing kdu_expand.
+ # Overrides the PATH.
+-KakaduDemoProcessor.path_to_binaries =
++KakaduDemoProcessor.path_to_binaries = /usr/local/cantaloupe/deps/Linux-x86-64/bin
+ 
+ #----------------------------------------
+ # OpenJpegProcessor
 @@ -475,20 +475,20 @@
  # for forever.
  # Per https://github.com/Islandora-Collaboration-Group/ISLE/issues/207
