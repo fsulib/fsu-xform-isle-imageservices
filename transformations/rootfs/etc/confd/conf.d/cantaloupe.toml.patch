@@ -1,6 +1,6 @@
---- isle-imageservices/rootfs/etc/confd/conf.d/cantaloupe.toml	2021-08-10 12:55:41.000000000 -0400
-+++ rootfs/etc/confd/conf.d/cantaloupe.toml	2021-08-11 07:35:22.000000000 -0400
-@@ -5,10 +5,19 @@
+--- isle-imageservices/rootfs/etc/confd/conf.d/cantaloupe.toml	2021-08-12 13:41:40.000000000 -0400
++++ rootfs/etc/confd/conf.d/cantaloupe.toml	2021-08-12 15:57:45.000000000 -0400
+@@ -5,10 +5,20 @@
  gid = 1000
  mode = "0644"
  keys = [
@@ -9,6 +9,7 @@
    "/cantaloupe/admin/user",
    "/cantaloupe/admin/pass",
    "/cantaloupe/log/application/level",
++  "/cantaloupe/chunking/enabled",
    "/cantaloupe/processor/selection/strategy",
 -  "/cantaloupe/processor/jp2"
 +  "/cantaloupe/processor/jp2",
